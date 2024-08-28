@@ -3,11 +3,14 @@ import { RouterOutlet } from '@angular/router';
 import { WishItem } from '../shared/models/wi';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { WishListComponent } from "./wish-list/wish-list.component";
+import { AddWishComponent } from "./add-wish/add-wish.component";
+import { WishFilterComponent } from "./wish-filter/wish-filter.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet , CommonModule, FormsModule],
+  imports: [RouterOutlet, CommonModule, FormsModule, WishListComponent, AddWishComponent, WishFilterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   
@@ -24,18 +27,15 @@ export class AppComponent {
 
   ]
   title = 'WishList';
+  listFilter : String = '';
+  filter: (item: WishItem) => boolean = () => true;
 
-toggleItem(item:WishItem){
-  
-  item.isComplited = !item.isComplited;
+ 
 
-  console.log(item);
-}
-newWishT = '';
-newWish()
-{
-  this.items.push(new WishItem(this.newWishT));
-  this.newWishT ='';
-}
+
+
+
+
+
 
 }

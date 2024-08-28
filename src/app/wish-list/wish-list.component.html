@@ -1,0 +1,20 @@
+<div  *ngIf="wishes.length==0; else emtp">
+    <h2>There are no items</h2>
+    
+   
+   
+</div>
+<div>
+    <ng-template #emtp>
+        <li *ngFor="let item of wishes; index as ii">
+        
+          <input type="checkbox"
+           class="checkbox"
+           [checked]="item.isComplited"
+           [attr.data-index]="ii"
+           (click)="toggleItem(item)"> {{item.wishText}}
+        
+      </li>
+      </ng-template>
+</div>
+

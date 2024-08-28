@@ -1,28 +1,46 @@
 <h1 *ngIf="isVisible">Hello  {{ title }}</h1>
 
-  <div  *ngIf="items.length==0; else emtp">
+
+<div class="row mt-3">
+<app-wish-list
+[wishes]="items.filter(filter)"></app-wish-list>
+</div>
+ <!--
+  <div  *ngIf="visibleItems.length==0; else emtp">
     <h2>There are no items</h2>
     
    
    
   </div>
 
- 
-    <form>
-      <div>
-        <label>Wish</label>
-        <input type="text" name="ime" class="form-control" [(ngModel)]="newWishT">
+-->
+  <div class="row mt-3">
+    <app-add-wish
+    (addWish)="items.push($event)"></app-add-wish>
+  </div>
+   <!-- (ngModelChange)="filterChanged($event)" => to je bilo u selektu -->
+    <div class=" row mt-3">
+     <!--x <div class="col-sm-2">
+        <select class="form-select"
+        [(ngModel)]="listFilter"
+        >
+        <option value="0">All</option>
+        <option value="1">Unfill</option>
+        <option value="2">Fill</option>
+
+      
+      </select>
+
       </div>
-      <div>
-        <button 
-        type="submit"
-        class="btn btn-primary"
-        (click)="$event.preventDefault(); newWish()">Add Wish</button>
-      </div>
-    </form>
+    -->
+
+    <app-wish-filter
+    [(filter)]="filter"></app-wish-filter>
+    </div>
+    <!--
   
   <ng-template #emtp>
-    <li *ngFor="let item of items; index as ii">
+    <li *ngFor="let item of visibleItems; index as ii">
     
       <input type="checkbox"
        class="checkbox"
@@ -32,6 +50,7 @@
     
   </li>
   </ng-template>
+-->
     
 
 
