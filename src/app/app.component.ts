@@ -21,6 +21,7 @@ export class AppComponent {
     new WishItem('First'),
     new WishItem('Second', true),
 
+    
     new WishItem('Goggins'),
     new WishItem('Mark')
 

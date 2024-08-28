@@ -6,15 +6,15 @@
 </div>
 <div>
     <ng-template #emtp>
-        <li *ngFor="let item of wishes; index as ii">
+
+        <app-wish-list-item
+        *ngFor="let wish of wishes"
+        [wishText]="wish.wishText"
+        [(fullfilled)] ="wish.isComplited"
+        >
+
+        </app-wish-list-item>
         
-          <input type="checkbox"
-           class="checkbox"
-           [checked]="item.isComplited"
-           [attr.data-index]="ii"
-           (click)="toggleItem(item)"> {{item.wishText}}
-        
-      </li>
       </ng-template>
 </div>
 

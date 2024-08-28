@@ -1,1 +1,12 @@
-<p>wish-list-item works!</p>
+<li>
+    <label [ngClass] = "cssClasse"> 
+    <input type="checkbox"
+     class="checkbox"
+     [checked]="fullfilled"
+     
+     (click)="toggleFullfilled()"> {{wishText}}
+
+    </label>   
+     
+  
+</li>
