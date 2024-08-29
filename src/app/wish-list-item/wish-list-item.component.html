@@ -1,12 +1,18 @@
-<li>
-    <label [ngClass] = "cssClasse"> 
-    <input type="checkbox"
-     class="checkbox"
-     [checked]="fullfilled"
+<li class="d-flex justify-content-between">
+    <div>
+     <label [ngClass] = "cssClasse"> 
+        <input type="checkbox"
+         class="checkbox"
+        [checked]="wish.isComplited"
      
-     (click)="toggleFullfilled()"> {{wishText}}
+        (click)="toggleFullfilled()"> {{wish.wishText}}
 
-    </label>   
+     </label>  
+    
+    </div> 
+    <div>
+        <button type="button" class="btn-close" (click)="removeWish()"></button>
+    </div> 
      
   
 </li>

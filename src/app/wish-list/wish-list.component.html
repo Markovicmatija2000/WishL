@@ -1,5 +1,6 @@
 <div  *ngIf="wishes.length==0; else emtp">
     <h2>There are no items</h2>
+    <!-- [(fullfilled)] ="wish.isComplited"-->
     
    
    
@@ -9,8 +10,8 @@
 
         <app-wish-list-item
         *ngFor="let wish of wishes"
-        [wishText]="wish.wishText"
-        [(fullfilled)] ="wish.isComplited"
+        [wish]="wish"
+        
         >
 
         </app-wish-list-item>
